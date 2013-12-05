@@ -28,6 +28,7 @@ Modular Chunk Control Matrix (MCCM)
   available per Matrix, but it could be increased by adding more Matrices (multiblock structure). The block itself
   will feature an owner-locked interface, much like TE3's Tesseracts/Strongboxes, or various Forestry machines. The
   block will fill an internal buffer with 'Dimensional Energy' (DE) for consumption as it works, based on upgrades.
+  The MCCM has a button for redstone signal control, similar to TE3 machines among others.
   
 Upgrades: So Configurable!
 
@@ -43,11 +44,13 @@ Upgrades: So Configurable!
       scale in power consumption based on number of chunks effected.
     Block Break Prevention
       Using Forge's BlockBreak event, this would prevent players/objects from breaking the blocks within effected
-      chunks, which would include effects like TNT, Quarries, Creeper explosions, etc. Scales with chunks of course
+      chunks, which would include effects like TNT, Quarries, Creeper explosions, etc. Scales with total number of
+      chunks effected.
     Monster Spawn Prevention
-      Fairly simple, prevents monsters from spawning within the effected chunks.
+      Fairly simple, prevents monsters from spawning within the effected chunks. Scales with total number of chunks
+      effected.
     Monster Repellent
-      Simple also, prevents monsters from moving into the effected chunks.
+      Simple also, prevents monsters from moving into the effected chunks. Scales with total number of chunks effected.
     Item Consumption
       This upgrade is mutually exclusive to the 'energy consumption' upgrade, and the configuration file can disable
       this upgrade entirely if desired. This upgrade will consume an item to power the MCCM, the item consumed can be
@@ -70,7 +73,8 @@ Upgrades: So Configurable!
       short, if you do not protect it in other ways, or hide it, a defending player might notice the attack and 
       dismantle your aggressive MCCM (they cannot interact with it, but it can be destroyed! It has an incredibly long
       break time, and requires either a sword or pickaxe, and will destroy the block and all upgrades within! This is
-      a WIP concept that might need a bit of refining!
+      a WIP concept that might need a bit of refining! This costs Dimensional Energy based on total number of chunks
+      effected.
     Square
       This upgrade is mutually exclusive with the 'circle' upgrade. The more square upgrades placed in the MCCM, the
       more chunks the square will encompass, increasing its length by 1 in each direction per square upgrade. For
@@ -87,13 +91,51 @@ Upgrades: So Configurable!
       opposed to 9 chunks for square. Two circle upgrades moves the radius to 2, increasing the total chunks to 13,
       with three, the radius of 3 will increase the total chunks to 25, and so on. This upgrade itself does not cost
       Dimensional Energy, but rather other upgrades scale to total chunks effected.
-    Bonus Chunks (Wrench will allow you to specify chunks in custom shape provided it is still connected)
-      This upgrade
+    Bonus Chunks
+      This upgrade is similar to the above in that it adds chunks to the MCCM, but unlike the others it can and is
+      intended to be used with either circle or square upgrades. The Bonus Chunks upgrade adds one bonus chunk per
+      upgrade, and that bonus chunk can be 'assigned' manually via shift right clicking the MCCM with bonus chunks
+      available, then moving to the chunk you wish to add and shift right clicking anything in that chunk. The chunk
+      must be contiguous, or connected, to already effected chunks, either by means of bonus chunks forming a line
+      or adding a chunk at the edge of a square or circle formation. There will be a button in the MCCM gui to reset
+      bonus chunks, when applicable. This upgrade does not cost Dimensional Energy itself, but rather other upgrades
+      scale with total chunks effected.
     Assault Resistance
+      This upgrade is simple, it provides a flat 10% resistance to the Chunk Assault effect, up to a maximum of 50%
+      resistance added by these upgrades (would take 5, obviously). This costs extra Dimensional Energy, and scales
+      with total chunks effected.
     Whitelist Control
+      This upgrade adds a whitelist control section to the gui of the MCCM, allowing the owner to add players to a
+      list that would allow them to ignore the restrictions and effects of the MCCM. There is also a setting for
+      whether or not to allow them to configure the MCCM itself, by default, they cannot. This upgrade has a flat
+      cost, it does not scale with total number of chunks effected.
     Dimensional Energy Buffer Boost
-    Communication Suppressor (chat inside doesn't get out)
-    Communication Silencor (chat outside doesn't come in)
-    Communication Satellite Link (chat from inside and out gets between linked players via named 'closed channel radio')
+      A simple upgrade that adds a flat 20% increased to the maximum Dimensional Energy contained in the MCCM, this
+      bonus is capped at 100% increase (with 5 upgrades of this type). This upgrade costs a flat amount of DE, it
+      does not scale with number of chunks effected.
+    Communication Suppressor
+      This upgrade causes anyone within its chunk boundaries to only be able to speak with players within its
+      boundaries, anyone outside of the effected chunks will not see any chat made from inside. This upgrade costs a
+      flat ammount of Dimensional Energy, it does not scale with total number of effected chunks.
+    Communication Silencer
+      This upgrade is a counterpart to the Communication Suppressor, it causes anyone's chat from outside the effected
+      chunks to be silenced to those within the effected chunks. It costs a flat ammount of Dimensional Energy, it does
+      not cost more per effected chunk.
+    Communication Satellite Link
+      This upgrade is a further evolution to the Communication Supressor and Silencer. It requires a communication link
+      card to be set to a certain frequency and added to the MCCM as an upgrade, only one frequency can be added at a
+      one time. Any players outside the boundaries of the MCCM but possessing a communication link card set to the 
+      proper frequency can shift right click the card to set their chat to 'Satellite Linked' mode and will chat as if
+      they are within the MCCM. Having the card in their possesion also causes them to see chat from within the linked
+      MCCM. They do still see chat from other players however, and also can chat to other players by shift right
+      clicking the card to disable Satellite link chat. This upgrade's cost does not scale with number of chunks
+      effected.
+    Dimensional Tearing
+      This peculiar upgrade adds the ability to create portals between two MCCM's with this upgrade installed. This
+      upgrade costs a flat, not scaling ammount, but it is a huge ammount. While this upgrade is active, a Dimensional
+      portal can be openned up by connecting two portals (with a frequency card set to the same frequency). These
+      portals will behave like Mystcraft portals, and work perfectly fine between dimensions, but they require that
+      both sides have the Dimensional Tearing upgrade installed, that the portals share the same frequency, and that
+      both sides are chunkloaded (via any method necessary).
     
     
