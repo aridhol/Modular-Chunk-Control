@@ -19,3 +19,15 @@ Upgrades: So Configurable!
 
   Functions:
     Chunk Loading
+    Chunk Ownership (interaction prevention)
+    Block Break Prevention
+    Monster Spawn Prevention
+    Monster Repellent
+    Item Consumption
+    Energy Consumption
+    Chunk Assault (PvP)
+    Square
+    Circle
+    Bonus Chunks (Wrench will allow you to specify chunks in custom shape provided it is still connected)
+    Assault Resistance
+    
