@@ -30,4 +30,8 @@ Upgrades: So Configurable!
     Circle
     Bonus Chunks (Wrench will allow you to specify chunks in custom shape provided it is still connected)
     Assault Resistance
+    Communication Suppressor (chat inside doesn't get out)
+    Communication Silencor (chat outside doesn't come in)
+    Communication Satellite Link (chat from inside and out gets between linked players via named 'closed channel radio')
+    
     
