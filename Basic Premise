@@ -19,29 +19,79 @@ is very useful, but does not have all the functionality I would give it!) That i
 down some of the specifics!
 
 Blocks: Only one!
-Modular Chunk Control Matrix
+Modular Chunk Control Matrix (MCCM)
 
   This block does nothing on its own! It is merely a shell, with many many slots for upgrades, inputs, settings, and 
   more! The plan is for this block to be semi-costly, but not overly so, rather the upgrades are what makes it 
   expensive. An eventual goal would be for the block to adjust its texture and shape based on what upgrades are placed 
   inside of it, and another thought along that same line would be for it to have only a certain number of upgrades 
-  available per Matrix, but it could be increased by adding more Matrices (multiblock structure).
+  available per Matrix, but it could be increased by adding more Matrices (multiblock structure). The block itself
+  will feature an owner-locked interface, much like TE3's Tesseracts/Strongboxes, or various Forestry machines. The
+  block will fill an internal buffer with 'Dimensional Energy' (DE) for consumption as it works, based on upgrades.
   
 Upgrades: So Configurable!
 
   Functions:
     Chunk Loading
+      The Chunk Loading upgrade is self explanatory, the effected chunks will remain loaded while the MCCM is powered.
+      This would be a fairly costly upgrade, one of the most expensive, and it would scale in cost based on effected
+      chunks added up.
     Chunk Ownership (interaction prevention)
+      My thoughts on 'chunk ownership' would be for it to work essentially like TE3's strongboxes, but all blocks/tiles
+      within the effected chunks would gain this protection, marking some kind of message to the player who attempted to
+      'right click' any block similar to attempting to use a strongbox you do not have access to. This obviously would
+      scale in power consumption based on number of chunks effected.
     Block Break Prevention
+      Using Forge's BlockBreak event, this would prevent players/objects from breaking the blocks within effected
+      chunks, which would include effects like TNT, Quarries, Creeper explosions, etc. Scales with chunks of course
     Monster Spawn Prevention
+      Fairly simple, prevents monsters from spawning within the effected chunks.
     Monster Repellent
+      Simple also, prevents monsters from moving into the effected chunks.
     Item Consumption
+      This upgrade is mutually exclusive to the 'energy consumption' upgrade, and the configuration file can disable
+      this upgrade entirely if desired. This upgrade will consume an item to power the MCCM, the item consumed can be
+      configured and how much Dimensional Energy will be provided per item. Multiple items with different 'DE' levels
+      can be setup via the configuration files.
     Energy Consumption
+      This upgrade is mutually exclusive to the 'item consumption' upgrade, and the configuration file can disable this
+      upgrade entirely if desired. This upgrade will consume 'power' to fill its Dimensional Energy buffer to power the
+      MCCM. Acceptable power types can be configured (EU, RF, MJ, etc) as well as a configurable level of transfer from
+      said energies into 'DE'.
     Chunk Assault (PvP)
+      This upgrade cannot be used with Chunk ownership or Block break protection. It can also be disabled entirely via
+      the configuration file. This upgrade is an aggression upgrade, used to disable MCCM's owned by other players. 
+      It's functionality is still somewhat unclear, and it might wait for a later version before being included. The 
+      idea is, this upgrade will attack a nearby MCCM in attempts to disable it. Based on the number of Chunk Assault
+      upgrades placed in it vs the Assault Resistance in the defending MCCM, it will drain extra power from the MCCM
+      to attempt to bring it offline. The offensive MCCM has to have its area adjusted to overlap with an existing 
+      MCCM in order to 'attack' it, and the aggressive MCCM, as it cannot be used with Block Break protection or 
+      interaction protection, loses its 'ownership' protection provided natively by the MCCM block itself; long story
+      short, if you do not protect it in other ways, or hide it, a defending player might notice the attack and 
+      dismantle your aggressive MCCM (they cannot interact with it, but it can be destroyed! It has an incredibly long
+      break time, and requires either a sword or pickaxe, and will destroy the block and all upgrades within! This is
+      a WIP concept that might need a bit of refining!
     Square
+      This upgrade is mutually exclusive with the 'circle' upgrade. The more square upgrades placed in the MCCM, the
+      more chunks the square will encompass, increasing its length by 1 in each direction per square upgrade. For
+      example: No square upgrade, the MCCM only effects the chunk its contained in. One square upgrade, the MCCM now
+      effects a 3x3 area, two upgrades, 5x5, three, 7x7, etc. This upgrade itself does not cost Dimensional Energy,
+      but rather other upgrades scale to total chunks effected.
     Circle
+      This upgrade is mutually exclusive with the 'square' upgrade. The more circle upgrades placed in the MCCM, the
+      more chunks the circle will encompass, increasing its radius by 1 in per circle upgrade. The circle upgrade is
+      not exactly very circular, because by nature minecraft's chunks are square, but its a fairly simple process to
+      get the idea here.. As a general rule, circle will always effect less total chunks than 'square' for the same
+      ammount of upgrades. For example, no circle upgrades, the MCCM only effects the chunk it is contained in. With
+      one circle upgrade, the radius moves to '1' moving one chunk in each direction, for a total of 5 chunks, as
+      opposed to 9 chunks for square. Two circle upgrades moves the radius to 2, increasing the total chunks to 13,
+      with three, the radius of 3 will increase the total chunks to 25, and so on. This upgrade itself does not cost
+      Dimensional Energy, but rather other upgrades scale to total chunks effected.
     Bonus Chunks (Wrench will allow you to specify chunks in custom shape provided it is still connected)
+      This upgrade
     Assault Resistance
+    Whitelist Control
+    Dimensional Energy Buffer Boost
     Communication Suppressor (chat inside doesn't get out)
     Communication Silencor (chat outside doesn't come in)
     Communication Satellite Link (chat from inside and out gets between linked players via named 'closed channel radio')
