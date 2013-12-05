@@ -1,0 +1,21 @@
+First, the basics!
+
+This mod will be coded as a Minecraft Forge mod!
+
+This mod will be OPEN SOURCE! Let others learn from it as they wish!
+
+This mod will be user-friendly and configurable! No sacrifices or cut corners to make it easier to code!
+
+This mod will use many API's to ensure compatibility with many, many popular Forge mods!
+
+Now, the plan, summarized: A single block, powered by items (like a railcraft chunkloader) or by power (IC2, TE3, BC, UE, etc) in mass quantities, to effect chunks in certain ways. This is not a 'cheater' block, it won't reveal diamonds in the chunk you are in, but rather through its upgrades it can act as a chunk loader, a chunk ownership controller (with a whitelist for friends!), a block-break protector, a mob repulsor/spawn blocker, even a PvP Assault Block! (This might be a little ways down the line, and will definitely be configurable! More on this function in the 'upgrades' section) The block will consume items/energy based on its upgrades, essentially, the more it does, the more its going to cost to run it! (There are some crossovers with this block and MFFS's Interdiction Matrix, which is not coincidental! The block is very useful, but does not have all the functionality I would give it!) That is a pretty fair summation, now to break down some of the specifics!
+
+Blocks: Only one!
+Modular Chunk Control Matrix
+
+  This block does nothing on its own! It is merely a shell, with many many slots for upgrades, inputs, settings, and more! The plan is for this block to be semi-costly, but not overly so, rather the upgrades are what makes it expensive. An eventual goal would be for the block to adjust its texture and shape based on what upgrades are placed inside of it, and another thought along that same line would be for it to have only a certain number of upgrades available per Matrix, but it could be increased by adding more Matrices (multiblock structure).
+  
+Upgrades: So Configurable!
+
+  Functions:
+    Chunk Loading
